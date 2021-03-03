@@ -1,4 +1,4 @@
-# Step2Heart — Generalizable physiological representations
+# _Step2Heart_ — Generalizable physiological representations
 ![header image](https://github.com/sdimi/Step2heart/blob/main/data/architecture_overview.png)
 
 
