@@ -4,8 +4,8 @@ import numpy as np
 from tqdm import tqdm
 from sklearn.model_selection import train_test_split , StratifiedShuffleSplit
 
-X = np.load("data/X_windows_one_user_sample.npy")
-Y = np.load("data/Y_windows_one_user_sample.npy")
+X = np.load("data/X_windows_one_user_sample.npy", allow_pickle=True)
+Y = np.load("data/Y_windows_one_user_sample.npy", allow_pickle=True)
  
 from sklearn.model_selection import GroupShuffleSplit
 #split in two disjoint groups of users
