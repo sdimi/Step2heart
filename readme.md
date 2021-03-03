@@ -27,6 +27,8 @@ You might also need some extra helper libraries like `tqdm` (prettier for-loops)
 ## Data 
 We use data from the [Fenland Study](https://www.mrc-epid.cam.ac.uk/research/studies/fenland/). We cannot publicly share this data but it is available from the MRC Epidemiology Unit at the University of Cambridge upon reasonable request. To facilitate easier testing of our code, we provide small samples with the same vectors and naming conventions. See ``data/feature_names`` for the features and their order and ``data/fitness_test`` for the laboratory treadmill data sample and the data dictionary. Sensor windows from a randomly selected participant are provided in ``/data``.
 
+The input vector of activity for the pre-training task a 3D tensor of dimensions [samples, timesteps, features] while the output heart rate is an 1D vector of [samples]. In particular, in ``/data`` we provide X = ``[1, 512, 34]`` and y = ``[512]``. The outcomes for transfer learning in ``data/fitness_test`` are in an 2D vector of [samples, features].
+
  
 # Run
 All experiments are streamlined and automated in bash files. The hyperparameter tuning was done in a high-performance computing SLURM cluster, and the contribution of the hyperparams was evaluated on the validation set. 
