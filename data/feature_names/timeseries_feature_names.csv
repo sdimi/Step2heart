@@ -1,0 +1,17 @@
+,features_used
+0,ACC
+1,mean_hr
+2,lower_hr
+3,upper_hr
+4,lost_secs
+7,hrv_milliseconds
+8,X_mean
+9,X_std
+10,Y_mean
+11,Y_std
+12,Z_mean
+13,Z_std
+14,ENMO_mean
+15,VM_HPF_mean
+16,VM_HPF_min
+17,VM_HPF_max
