@@ -1,9 +1,14 @@
-# Code for CHIL 2021 paper
+# Step2Heart — Generalizable physiological representations
+![header image](https://github.com/sdimi/Step2heart/blob/main/data/architecture_overview.png)
+
+
 ### Self-supervised transfer learning of physiological representations from free-living wearable data
 
-This repository contains the necessary code to reproduce and investigate the experiments conducted for our paper. Unfortunately we cannot share the dataset due to strong privacy limitations that safeguard health data, however the pre-processing of the data is described thoroughly on the paper (section Evaluation). The main input is a chest ECG which measured heart rate and uniaxial acceleration in 15-second intervals along with the wrist device which recorded 60 Hz triaxial acceleration. 
+**Abstract**. Wearable devices such as smartwatches are becoming increasingly popular tools for objectively monitoring physical activity in free-living conditions. To date, research has primarily focused on the purely supervised task of human activity recognition, demonstrating limited success in inferring high-level health outcomes from low-level signals. Here, we present a novel self-supervised representation learning method using activity and heart rate (HR) signals without semantic labels. With a deep neural network, we set HR responses as the supervisory signal for the activity data, leveraging their underlying physiological relationship. In addition, we propose a custom quantile loss function that accounts for the long-tailed HR distribution present in the general population.
 
-Our pre-processing scripts align, window, and produce numpy vectors with all participants. Then, the models are trained on these vectors. Last, we extract embeddings from these models and do transfer learning with linear classifiers.
+We evaluate our model in the largest free-living combined-sensing dataset (comprising >280k hours of wrist accelerometer & wearable ECG data). Our contributions are two-fold: i) the pre-training task creates a model that can accurately forecast HR based only on cheap activity sensors, and ii) we leverage the information captured through this task by proposing a simple method to aggregate the learnt latent representations (embeddings) from the window-level to user-level. Notably, we show that the embeddings can generalize in various downstream tasks through transfer learning with linear classifiers, capturing physiologically meaningful, personalized information. For instance, they can be used to predict variables associated with individuals’ health, fitness and demographic characteristics (AUC >70), outperforming unsupervised autoencoders and common bio-markers. Overall, we propose the first multimodal self-supervised method for behavioral and physiological data with implications for large-scale health and lifestyle monitoring.
+
+**This repository**. We provide the necessary code to reproduce and investigate the experiments conducted in our paper [1]. Unfortunately we cannot share the dataset due to privacy limitations that safeguard health data, however we provide some samples (see below) as well as the pre-processing of the data is described thoroughly on the paper (section Evaluation). The main input is a chest ECG wearable device which measured heart rate and uniaxial acceleration in 15-second intervals along with a wrist device which recorded 60 Hz triaxial acceleration. We have pre-processed the data by aligning and windowing in order to produce numpy vectors with all participants. Then, we train the models  on these vectors. Last, we extract embeddings from these models and perform transfer learning with linear classifiers.
 
 ## Requirements
 The code is written in python 3.6.0. The main libraries needed to execute our code are as follows:
@@ -18,7 +23,7 @@ The code is written in python 3.6.0. The main libraries needed to execute our co
 You might also need some extra helper libraries like `tqdm` (prettier for-loops) but they are not mandatory.
 
 ## Data 
-We use data from the Fenland Study (https://www.mrc-epid.cam.ac.uk/research/studies/fenland/). We cannot publicly share this data but it is available from the MRC Epidemiology Unit at the University of Cambridge upon reasonable request. To facilitate easier testing of our code, we provide small samples with the same vectors and naming conventions. See data/feature_names for the features and their order and data/fitness_test for the lab test data sample and the dictionary. Sensor windows from a randomly selected participant are provided in /data.
+We use data from the [Fenland Study](https://www.mrc-epid.cam.ac.uk/research/studies/fenland/). We cannot publicly share this data but it is available from the MRC Epidemiology Unit at the University of Cambridge upon reasonable request. To facilitate easier testing of our code, we provide small samples with the same vectors and naming conventions. See ``data/feature_names`` for the features and their order and ``data/fitness_test`` for the laboratory treadmill data sample and the data dictionary. Sensor windows from a randomly selected participant are provided in ``/data``.
 
  
 # Run
@@ -40,8 +45,14 @@ Last, to evaluate the embeddings with transfer learning run:
 
 ## Pre-trained models
 
-We provide the best model and its weights [Step2Heart (A/R/T)] in /models/20200115-041958. This model can be used directly to extract embeddings with 04_extract_embeddings.py. 
+We provide the best model and its weights [Step2Heart (A/R/T)] in ``/models/20200115-041958``. This model can be used directly to extract embeddings with ``04_extract_embeddings.py`` and subsequently perform transfer learning. 
 
 ## How to cite our paper 
+
+Please cite our papers if you use code or ideas from our project:
+
+> [1]  Dimitris Spathis, Ignacio Perez-Pozuelo, Soren Brage, Nicholas J. Wareham, Cecilia Mascolo. ["Self-supervised transfer learning of physiological representations from free-living wearable data."](https://arxiv.org/abs/2011.12121) In Proceedings of ACM Conference on Health, Inference, and Learning (CHIL), USA, 2021. (to appear)
+
+> [2] Dimitris Spathis, Ignacio Perez-Pozuelo, Soren Brage, Nicholas J. Wareham, Cecilia Mascolo. ["Learning Generalizable Physiological Representations from Large-scale Wearable Data."](https://arxiv.org/pdf/2011.04601.pdf) In NeurIPS Machine Learning for Mobile Health workshop, Vancouver, Canada, 2020.
 
 
