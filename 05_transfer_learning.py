@@ -15,8 +15,8 @@ from sklearn.decomposition import PCA
 from pylab import *
 
 
-#saved trained model
-folder = '2021XXXX-XXXXX' 
+#folder of the best pre-trained model (or replace with own)
+folder = '20200115-105719' 
 
 X_train_activations = np.load('data/X_train_activations'+ folder +'.npy')  
 X_test_activations = np.load('data/X_test_activations'+ folder +'.npy') 
