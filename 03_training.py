@@ -12,9 +12,7 @@ from tqdm import tqdm
 import time
 import argparse
 import glob
-
 import os
-
 import keras
 from keras.utils import plot_model
 from keras.utils import np_utils
@@ -45,7 +43,6 @@ X_train_demographics_normalized_temporal = X_train_demographics_normalized[:,-4:
 
 y_train = np.load('data/y_train.npy',allow_pickle=True) 
 
-
 print (X_train_timeseries_normalized.shape, X_train_demographics_normalized.shape, y_train.shape)
 
 batch_size = 256
@@ -69,7 +66,6 @@ checkpointer = ModelCheckpoint(monitor='val_loss', filepath=filepath, verbose=1,
 early_stop = EarlyStopping(monitor='val_loss', patience=10, verbose=0, mode='auto')
 
 csv_logger = CSVLogger('models/%s/log.csv'%model_time, append=True, separator=';')
-
 
 if args.modality==1:
     model.fit([X_train_timeseries_normalized],
@@ -157,8 +153,7 @@ if args.modality==4:
 if args.modality==5:
     import sys
     sys.exit("done! We don't predict with the autoencoder since there is not target to evaluate")
-
-    
+   
 predicted = np.squeeze((predicted))
 
 mse, rmse, mae =  error_metrics(y_test.astype('float'),np.squeeze(predicted))

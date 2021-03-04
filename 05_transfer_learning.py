@@ -3,7 +3,6 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
 import seaborn as sns
 sns.set_context("poster")
 from keras import *
@@ -13,7 +12,6 @@ import glob
 from tqdm import tqdm
 from sklearn.decomposition import PCA
 from pylab import *
-
 
 #folder of the best pre-trained model (or replace with own)
 folder = '20200115-105719' 
@@ -37,7 +35,6 @@ def window2user (activations, trainset=True):
 X_train_user_level = window2user(X_train_activations, trainset=True)
 X_test_user_level = window2user(X_test_activations, trainset=False)
 
-
 #Extract demographic labels for classification (per user)
 def extract_labels (trainset=True):
     if trainset:
@@ -59,10 +56,8 @@ def extract_labels (trainset=True):
     label_names_df_user = label_names_df.groupby(label_names_df.index).first() 
     return label_names_df_user, label_names
     
-
 y_train_metadata, label_names = extract_labels(trainset=True) #takes time since we load the trainset
 y_test_metadata, label_names = extract_labels(trainset=False)
-
 
 y_test_metadata.columns = np.squeeze(label_names.values[1:]) #replace column names, we removed the first column (userID) earlier
 y_train_metadata.columns = np.squeeze(label_names.values[1:]) #replace column names, we removed the first column (userID) earlier
@@ -157,7 +152,7 @@ for i in X_y_train_combined.columns[:9]: #loop through the outcomes #X_y_train_c
         if not file_exists:
             writer.writeheader()  # file doesn't exist yet, write a header
         writer.writerow({'Datasize': X_train.shape[0],
-                         'Model_checkpoint': folder+"oldfitness",
+                         'Model_checkpoint': folder,
                          'Outcome': i, 
                          'Original Dimension': X_y_train_combined.shape[1],
                          'PCA_components': X_train.shape[1],

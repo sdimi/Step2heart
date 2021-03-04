@@ -4,7 +4,6 @@ import numpy as np
 import pandas as pd
 from math import sqrt
 import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
 import seaborn as sns
 sns.set_context("poster")
 import xgboost as xgb
@@ -19,7 +18,6 @@ y_train = np.load('data/y_train.npy')
 y_test = np.load('data/y_test.npy') 
 
 print (X_train.shape,X_test.shape, y_train.shape, y_test.shape )
-
 
 param_grid_random = {
         
@@ -57,7 +55,6 @@ with open ("results_xgb.csv", 'a') as csvfile:
                      'RMSE': rmse,
                      'MAE': mae,
                     })    
-
 
 plt.figure(figsize=(15,10))
 pd.DataFrame([(predicted),y_test.astype('float')]).T[0].hist(alpha=0.5,bins=100, label='predicted') 

@@ -52,8 +52,6 @@ def min_max_scaling(array, indices): #transform every timeseries to [0,1]
 X_test_timeseries_normalized = min_max_scaling(X_test[:,:,indices_timeseries], indices_timeseries)
 X_train_timeseries_normalized = min_max_scaling(X_train[:,:,indices_timeseries], indices_timeseries)
 
-
-
 print("Normalized timeseries plus temporal:", X_train_timeseries_normalized.shape, X_test_timeseries_normalized.shape)
 
 #this could be also standard scaler, but we do [0,1] for consistency 

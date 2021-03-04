@@ -70,7 +70,6 @@ joblib.dump(scaler, scaler_filename)
 scaler = joblib.load(scaler_filename) 
 ts_test_scaled = scaler.transform(ts_test) #transform on test set
 
-
 print("Normalized timeseries:",ts_train_scaled.shape, ts_test_scaled.shape)
 
 #timeseries

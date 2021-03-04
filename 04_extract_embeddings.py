@@ -4,7 +4,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set_context("poster")
 from keras import *
 from keras import backend as K
 from keras.models import  model_from_json, Model
@@ -13,7 +12,6 @@ from tqdm import tqdm
 from utils import *
 
 K.set_learning_phase(0)
-
 
 #folder of the best pre-trained model (or replace with own)
 folder = '20200115-105719' 
@@ -33,7 +31,6 @@ X_test_timeseries_normalized = X_test_timeseries_normalized[:,:,6:] #select only
 X_test_demographics_normalized = np.load('data/X_test_demographics_normalized.npy')
 X_test_demographics_normalized_resting = X_test_demographics_normalized[:,0]
 X_test_demographics_normalized_temporal = X_test_demographics_normalized[:,-4:]
-
 
 model, loss = modular_model(X_train_timeseries_normalized.shape[2], 4, "quantile") #for a quantile model
 #model, loss = modular_model(X_train_timeseries_normalized.shape[2], 5, "mse") #for vanilla mse
@@ -92,7 +89,6 @@ reshaped_arr_train.shape
 #[loops, steps, activation_dim] -> [loops*steps, activation_dim]
 reshaped_arr_test = np.squeeze(np.array(activations_test)).reshape(len(X_test_timeseries_normalized), np.array(activations_test).shape[3]) #the dim of the output layer
 reshaped_arr_test.shape
-
 
 np.save('data/X_train_activations'+ folder +'.npy', reshaped_arr_train)  
 np.save('data/X_test_activations'+ folder +'.npy', reshaped_arr_test)
