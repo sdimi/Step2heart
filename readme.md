@@ -33,23 +33,24 @@ The input vector of activity for the pre-training task is a 3D tensor of dimensi
 # Run
 All experiments are streamlined and automated in bash files. The hyperparameter tuning was done in a high-performance computing SLURM cluster, and the contribution of the hyperparams was evaluated on the validation set. 
 
-To train all the deep learning models (proposed and baselines) run:
+To train all pre-training neural networks (proposed and baselines), run:
 
     bash "run_experiments.sh"
 
-To evaluate the feature-based pre-training baseline run:
-
-    python3 "06_extract_features_for_xgb.py"
-    python3 "07_xgboost_baseline_train_evaluate.py"
-
-Last, to evaluate the embeddings with transfer learning run: 
+To extract embeddings and perform transfer learning, run: 
 
     python3 "04_extract_embeddings.py"
     python3 "05_transfer_learning.py"
 
+Last, to evaluate the feature-based pre-training baseline, run:
+
+    python3 "06_extract_features_for_xgb.py"
+    python3 "07_xgboost_baseline_train_evaluate.py"
+
+
 ## Pre-trained models
 
-We provide the best model and its weights [Step2Heart (A/R/T)] in ``/models/20200115-041958``. This model can be used directly to extract embeddings with ``04_extract_embeddings.py`` and subsequently perform transfer learning. 
+We provide the best model and its weights [Step2Heart (A/R/T)] in ``/models/20200115-105719``. This model can be used directly to extract embeddings with ``04_extract_embeddings.py`` and subsequently perform transfer learning. 
 
 ## How to cite our paper 
 
