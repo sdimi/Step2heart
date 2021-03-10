@@ -50,7 +50,7 @@ Last, to evaluate the feature-based pre-training baseline, run:
 
 ## Pre-trained models
 
-We provide the best model and its weights [Step2Heart (A/R/T)] in ``/models/20200115-105719``. This model can be used directly to extract embeddings with ``04_extract_embeddings.py`` and subsequently perform transfer learning. 
+We provide the best model and its weights (called _Step2Heart<sub>A/R/T</sub>_ in the paper) in the folder ``/models/20200115-105719``. This model can be used directly to extract embeddings with ``04_extract_embeddings.py`` and subsequently perform transfer learning. 
 
 ## How to cite our paper 
 
