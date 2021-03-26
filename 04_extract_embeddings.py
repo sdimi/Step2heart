@@ -61,8 +61,7 @@ layer_activations = K.function([*model.input, K.learning_phase()],
 #layer_activations = K.function([model.input, K.learning_phase()],
 #                                 [model.layers[5].output])
 
-len(X_test_timeseries_normalized), len(X_train_timeseries_normalized)
-
+print (len(X_test_timeseries_normalized), len(X_train_timeseries_normalized))
 
 activations_test=[]
 for i in tqdm(range(0,len(X_test_timeseries_normalized), 197)):  #197 (step) is a proper divisor of 22458 (test set size)
