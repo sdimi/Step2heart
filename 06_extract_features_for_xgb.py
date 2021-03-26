@@ -31,7 +31,7 @@ def feature_extraction(array, feature_no): #3D tensor -> 2D features extraction 
     print ("Extracting features for modality",feature_no)
     array = pd.DataFrame(array)
 
-    #Pandas .describe() features (cound mean	std	min	25%	50%	75%	max)
+    #Pandas .describe() features (count, mean, std, min, 25%, 50%, 75%, max)
     array_features = array.T.describe().T.add_suffix('_%s'%feature_no)
     
     #we use the slope of Linear Regression as a feature
