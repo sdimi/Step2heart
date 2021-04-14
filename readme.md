@@ -60,7 +60,7 @@ We provide the best model and its weights (called _Step2Heart<sub>A/R/T</sub>_ i
 
 Please consider citing our papers if you use code or ideas from this project:
 
-> [1]  Dimitris Spathis, Ignacio Perez-Pozuelo, Soren Brage, Nicholas J. Wareham, Cecilia Mascolo. ["Self-supervised transfer learning of physiological representations from free-living wearable data."](https://arxiv.org/abs/2011.12121) In Proceedings of ACM Conference on Health, Inference, and Learning (CHIL), USA, 2021. (to appear)
+> [1]  Dimitris Spathis, Ignacio Perez-Pozuelo, Soren Brage, Nicholas J. Wareham, Cecilia Mascolo. ["Self-supervised transfer learning of physiological representations from free-living wearable data."](https://dl.acm.org/doi/10.1145/3450439.3451863) In Proceedings of ACM Conference on Health, Inference, and Learning (CHIL), USA, 2021. (to appear)
 
 > [2] Dimitris Spathis, Ignacio Perez-Pozuelo, Soren Brage, Nicholas J. Wareham, Cecilia Mascolo. ["Learning Generalizable Physiological Representations from Large-scale Wearable Data."](https://arxiv.org/pdf/2011.04601.pdf) In NeurIPS Machine Learning for Mobile Health workshop, Vancouver, Canada, 2020.
 
