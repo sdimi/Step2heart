@@ -35,7 +35,7 @@ The input vector of activity for the pre-training task is a 3D tensor of dimensi
 
  
 # ▶️ Run
-All experiments are streamlined and automated in bash files. The hyperparameter tuning was done in a high-performance computing SLURM cluster, and the contribution of the hyperparams was evaluated on the validation set. 
+All experiments are streamlined in bash files. The hyperparameter tuning was done in a SLURM cluster, and the contribution of the hyperparams was evaluated on the validation set. 
 
 To train all pre-training neural networks (proposed and baselines), run:
 
