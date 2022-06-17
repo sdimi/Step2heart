@@ -1,7 +1,6 @@
 # _Step2Heart_ 🏃‍♂️🤍 — Generalizable physiological representations
 ![header image](https://github.com/sdimi/Step2heart/blob/main/data/architecture_overview.png)
 
-
 ### 📖 Self-supervised transfer learning of physiological representations from free-living wearable data
 
 <details><summary>Abstract (click to expand)</summary>
@@ -14,7 +13,7 @@ We evaluate our model in the largest free-living combined-sensing dataset (compr
 </p>
 </details>
 
-**This repository**. We provide the necessary code to reproduce the experiments of our paper [1]. Unfortunately we cannot share the entire dataset due to privacy limitations that safeguard health data, however we provide some samples (see below). The main pre-training input is a wrist device which recorded 60 Hz triaxial acceleration and the output is a chest ECG wearable device which measured heart rate in 15-second intervals. For the downstream tasks, the most important outcome is VO2max (cardiorespiratory fitness), measured with a treadmil test. We have pre-processed the data by aligning and windowing all sensors in order to produce numpy vectors. Then, we train the proposed models on these vectors and extract embeddings for transfer learning with linear classifiers.
+**This repository**. We provide the code to reproduce the experiments of the paper [1]. We cannot share the entire dataset due to privacy limitations that safeguard health data, however we provide some real data samples (see below). The main pre-training input is a wrist device which recorded 60Hz triaxial acceleration and the output is a chest ECG wearable device which measured heart rate in 15-second intervals. For the downstream tasks, the most important outcome is VO2max (cardiorespiratory fitness), measured with a treadmil test. We have pre-processed the data by aligning and windowing all sensors in order to produce numpy vectors. Then, we train the proposed models on these vectors and extract embeddings for transfer learning with linear classifiers.
 
 ## 🛠️ Requirements
 The code is written in python 3.6.0. The main libraries needed to execute our code are as follows:
@@ -29,13 +28,13 @@ The code is written in python 3.6.0. The main libraries needed to execute our co
 You might also need some extra helper libraries like `tqdm` (prettier for-loops) but they are not mandatory.
 
 ## 🗂️ Data 
-We use data from the [Fenland Study](https://www.mrc-epid.cam.ac.uk/research/studies/fenland/). We cannot publicly share this data but it is available from the MRC Epidemiology Unit at the University of Cambridge upon reasonable request. To facilitate easier testing of our code, we provide small samples with the same vectors and naming conventions. See ``data/feature_names`` for the features and their order and ``data/fitness_test`` for the laboratory treadmill data sample and the data dictionary. Sensor windows from a randomly selected participant are provided in ``/data``.
+We use data from the [Fenland Study](https://www.mrc-epid.cam.ac.uk/research/studies/fenland/). We cannot publicly share this data but it is available from the MRC Epidemiology Unit at the University of Cambridge upon reasonable request. To facilitate easier testing of our code, we provide small samples with the same vector shapes and naming conventions. See ``data/feature_names`` for the features and their order and ``data/fitness_test`` for the laboratory treadmill data sample and the data dictionary. Sensor windows from a randomly selected participant are provided in ``/data``.
 
 The input vector of activity for the pre-training task is a 3D tensor of dimensions [samples, timesteps, features] while the output heart rate is an 1D vector of [samples]. In particular, in ``/data`` we provide X = ``[1, 512, 34]`` and y = ``[1]``. Essentially, every 512-long input window corresponds to a single future heart rate. The outcomes for transfer learning in ``data/fitness_test`` are in an 2D vector of [1, features].
 
  
 # ▶️ Run
-All experiments are streamlined in bash files. The hyperparameter tuning was done in a SLURM cluster, and the contribution of the hyperparams was evaluated on the validation set. 
+All experiments can be found in bash files. The hyperparameter tuning was done in a SLURM cluster, and the contribution of the hyperparams was evaluated on the validation set. 
 
 To train all pre-training neural networks (proposed and baselines), run:
 
