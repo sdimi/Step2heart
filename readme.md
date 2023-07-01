@@ -1,4 +1,4 @@
-# _Step2Heart_ 🏃‍♂️🤍 — Generalizable physiological representations
+# _Step2Heart_ 🏃‍♂️🫀 — Generalizable physiological representations
 ![header image](https://github.com/sdimi/Step2heart/blob/main/data/architecture_overview.png)
 
 ### 📖 Self-supervised transfer learning of physiological representations from free-living wearable data
