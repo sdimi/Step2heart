@@ -63,6 +63,13 @@ Please consider citing our papers if you use code or ideas from this project:
 
 > [2] Dimitris Spathis, Ignacio Perez-Pozuelo, Soren Brage, Nicholas J. Wareham, Cecilia Mascolo. ["Learning Generalizable Physiological Representations from Large-scale Wearable Data."](https://arxiv.org/pdf/2011.04601.pdf) In NeurIPS Machine Learning for Mobile Health workshop, Vancouver, Canada, 2020.
 
+Relevant papers from the same project:
+
+> [3]  Dimitris Spathis, Ignacio Perez-Pozuelo, Tomas I. Gonzales, Yu Wu, Soren Brage, Nicholas Wareham, Cecilia Mascolo. ["Longitudinal cardio-respiratory fitness prediction through wearables in free-living environments."](https://doi.org/jpcc), Nature Digital Medicine, 2022.
+
+> [4] Wu, Yu, Dimitris Spathis, Hong Jia, Ignacio Perez-Pozuelo, Tomas Gonzales, Soren Brage, Nicholas Wareham, and Cecilia Mascolo. ["UDAMA: Unsupervised Domain Adaptation through Multi-discriminator Adversarial Training with Noisy Labels Improves Cardio-fitness Prediction."](https://www.mlforhc.org/s/ID136_Research-Paper_2023.pdf) Machine Learning for Healthcare (MLHC), USA, 2023.
+
+
 ## License
 
 This code is licensed under the terms and conditions of GPLv3 unless otherwise stated. The actual paper is governed by a separate license and the paper authors retain their respective copyrights.
